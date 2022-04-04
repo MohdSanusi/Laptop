@@ -14,13 +14,16 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
 st.title('Machine Learning - LAPTOP PRICE PREDICTION')
-
+st.write("""
+This is a web app demo using python libraries such as Streamlit, Sklearn etc to predict laptop prices based on few specification.
+""")
 st.sidebar.write("""
 This is a web app demo using python libraries such as Streamlit, Sklearn etc
 """)
 
 st.sidebar.write ("For more info, please contact:")
 st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9bb8b7195/'>Mohd Sanusi </a>", unsafe_allow_html=True)
+
 
 
 data = pd.read_table('Laptop.csv', index_col = False,  sep = ',', skipinitialspace = True)
@@ -46,7 +49,7 @@ y = data['Price']
 Xtrain, Xtest, ytrain, ytest = train_test_split(X, y)
 
 knn = KNeighborsClassifier(n_neighbors=10)
-knn.fit(Xtrain, ytrain)
+knn.fit_transform(Xtrain, ytrain)
 ypred = knn.predict(Xtest)
 #RandomForest = RandomForestClassifier()
 #RandomForest.fit(Xtrain, ytrain)
