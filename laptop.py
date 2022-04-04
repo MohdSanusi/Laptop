@@ -51,11 +51,11 @@ ypred = RandomForest.predict(Xtest)
 
 st.write(ypred)
 
-D1 = st.sidebar.slider('Brand', 0.01, 10.0,value=1.0)
-D2 = st.sidebar.slider('Processor', 0.01, 10.0,value=1.0)
-D3 = st.sidebar.slider('Processor_Gen', 0.01, 10.0,value=1.0)
-D4 = st.sidebar.slider('Hard_Disk_Capacity', 0.01, 10.0,value=1.0)
-D5 = st.sidebar.slider('OS', 0.01, 10.0,value=1.0)            
+D1 = st.slider('Brand', 0.01, 10.0,value=1.0)
+D2 = st.slider('Processor', 0.01, 10.0,value=1.0)
+D3 = st.slider('Processor_Gen', 0.01, 10.0,value=1.0)
+D4 = st.slider('Hard_Disk_Capacity', 0.01, 10.0,value=1.0)
+D5 = st.slider('OS', 0.01, 10.0,value=1.0)            
 
 hide_streamlit_style = """
             <style>
