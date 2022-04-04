@@ -17,7 +17,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
 
-
 st.title('Machine Learning - LAPTOP PRICE PREDICTION')
 
 st.sidebar.write("""
@@ -38,73 +37,24 @@ choice = st.sidebar.radio(
 
 st.write(f"## You Have Selected <font color='Aquamarine'>{choice}</font> Dataset", unsafe_allow_html=True)
 
-def get_default_dataset(name):
-    data = None
-    if name == 'Iris':
-        data = datasets.load_iris()
-    elif name == 'Wine':
-        data = datasets.load_wine()
-    else:
-        data = datasets.load_breast_cancer()
-    X = data.data
-    y = data.target
-    return X, y
 
-def add_dataset_ui(choice_name):
-    X=[]
-    y=[]
-    X_names = []
-    X1 = []
-    if choice_name == 'Default':
-       dataset_name = st.sidebar.selectbox(
-            'Select Dataset',
-            ('Iris', 'Breast Cancer', 'Wine')
-        )
-       X, y = get_default_dataset (dataset_name)
-       X_names = X
-    else:
-        uploaded_file = st.sidebar.file_uploader(
-            "Upload a CSV",
-            type='csv'    )
-        
+data = pd.read_table('Laptop.csv', index_col = False,  sep = ',', skipinitialspace = True)
+data = data.dropna()
+data = data.drop(['Series','Unnamed: 0','Model','Processor'], axis = 1)
 
-        if uploaded_file!=None:
-           
-           st.write(uploaded_file)
-           data = pd.read_csv(uploaded_file)
-  
-        
-           y_name = st.sidebar.selectbox(
-                    'Select Label @ y variable',
-                    sorted(data)
-                    )
+labelencoder1 = LabelEncoder()
+#labelencoder2 = LabelEncoder()
+#labelencoder3 = LabelEncoder()
+labelencoder4 = LabelEncoder()
+labelencoder5 = LabelEncoder()
+labelencoder6 = LabelEncoder()
 
-           X_names = st.sidebar.multiselect(
-                     'Select Predictors @ X variables.',
-                     sorted(data),
-                     default = sorted(data)[1],
-                     help = "You may select more than one predictor"
-                     )
-
-           y = data.loc[:,y_name]
-           X = data.loc[:,X_names]
-           X1 = X.select_dtypes(include=['object'])
-        
-           X2 = X.select_dtypes(exclude=['object'])
-
-           if sorted(X1) != []:
-              X1 = X1.apply(LabelEncoder().fit_transform)
-              X = pd.concat([X2,X1],axis=1)
-
-           y = LabelEncoder().fit_transform(y)
-        else:
-           st.write(f"## <font color='Aquamarine'>Note: Please upload a CSV file to analyze the data.</font>", unsafe_allow_html=True)
-
-    return X,y, X_names, X1
-
-X, y , X_names, cat_var= add_dataset_ui (choice)
-
-
+data['Brand'] = labelencoder1.fit_transform(data['Brand'])
+#data['Model'] = labelencoder2.fit_transform(data['Model'])
+#data['Processor'] = labelencoder3.fit_transform(data['Processor'])
+data['Processor_Gen'] = labelencoder4.fit_transform(data['Processor_Gen'])
+data['Hard_Disk_Capacity'] = labelencoder5.fit_transform(data['Hard_Disk_Capacity'])
+data['OS'] = labelencoder6.fit_transform(data['OS'])
 
 
 classifier_name = st.sidebar.selectbox(
