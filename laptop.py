@@ -9,6 +9,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
@@ -23,7 +24,7 @@ st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9
 
 
 data = pd.read_table('Laptop.csv', index_col = False,  sep = ',', skipinitialspace = True)
-data = data.dropna(axis=1)
+data = data.dropna()
 data = data.drop(['Series','Unnamed: 0','Model'], axis = 1)
 
 labelencoder1 = LabelEncoder()
@@ -44,10 +45,12 @@ X = data.drop('Price', axis = 1)
 y = data['Price']
 Xtrain, Xtest, ytrain, ytest = train_test_split(X, y)
 
-
-RandomForest = RandomForestClassifier()
-RandomForest.fit(Xtrain, ytrain)
-ypred = RandomForest.predict(Xtest)
+knn = KNeighborsClassifier(n_neighbors=10)
+knn.fit(Xtrain, ytrain)
+ypred = knn.predict(Xtest)
+#RandomForest = RandomForestClassifier()
+#RandomForest.fit(Xtrain, ytrain)
+#ypred = RandomForest.predict(Xtest)
 
 D1 = st.slider('Brand', 0.01, 10.0,value=1.0)
 D2 = st.slider('Processor', 0.01, 10.0,value=1.0)
