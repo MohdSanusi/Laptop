@@ -23,7 +23,7 @@ st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9
 
 
 data = pd.read_table('Laptop.csv', index_col = False,  sep = ',', skipinitialspace = True)
-data = data.dropna()
+data = data.dropna(axis=1)
 data = data.drop(['Series','Unnamed: 0','Model'], axis = 1)
 
 labelencoder1 = LabelEncoder()
@@ -49,13 +49,13 @@ RandomForest = RandomForestClassifier()
 RandomForest.fit(Xtrain, ytrain)
 ypred = RandomForest.predict(Xtest)
 
-st.write(ypred)
-
 D1 = st.slider('Brand', 0.01, 10.0,value=1.0)
 D2 = st.slider('Processor', 0.01, 10.0,value=1.0)
 D3 = st.slider('Processor_Gen', 0.01, 10.0,value=1.0)
 D4 = st.slider('Hard_Disk_Capacity', 0.01, 10.0,value=1.0)
-D5 = st.slider('OS', 0.01, 10.0,value=1.0)            
+D5 = st.slider('OS', 0.01, 10.0,value=1.0)
+
+st.write(ypred)
 
 hide_streamlit_style = """
             <style>
