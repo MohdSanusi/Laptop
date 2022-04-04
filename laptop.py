@@ -56,6 +56,9 @@ data['Processor_Gen'] = labelencoder4.fit_transform(data['Processor_Gen'])
 data['Hard_Disk_Capacity'] = labelencoder5.fit_transform(data['Hard_Disk_Capacity'])
 data['OS'] = labelencoder6.fit_transform(data['OS'])
 
+X = data.drop('Price', axis = 1)
+y = data['Price']
+Xtrain, Xtest, ytrain, ytest = train_test_split(X, y)
 
 classifier_name = st.sidebar.selectbox(
     'Select classifier',
