@@ -26,7 +26,7 @@ st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9
 
 
 
-data = pd.read_table('Laptop.csv', index_col = False,  sep = ',', skipinitialspace = True)
+data = pd.read_table('train.csv', index_col = False,  sep = ',', skipinitialspace = True)
 data = data.dropna()
 data = data.drop(['Series','Unnamed: 0','Model'], axis = 1)
 
