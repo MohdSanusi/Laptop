@@ -27,7 +27,7 @@ st.sidebar.write ("For more info, please contact:")
 st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9bb8b7195/'>Mohd Sanusi </a>", unsafe_allow_html=True)
 
 
-st.write(f"## You Have Selected <font color='Aquamarine'>{choice}</font> Dataset", unsafe_allow_html=True)
+#st.write(f"## You Have Selected <font color='Aquamarine'>{choice}</font> Dataset", unsafe_allow_html=True)
 
 
 data = pd.read_table('Laptop.csv', index_col = False,  sep = ',', skipinitialspace = True)
