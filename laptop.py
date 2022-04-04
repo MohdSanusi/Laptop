@@ -24,16 +24,8 @@ This is a web app demo using python libraries such as Streamlit, Sklearn etc
 """)
 
 st.sidebar.write ("For more info, please contact:")
-
 st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9bb8b7195/'>Mohd Sanusi </a>", unsafe_allow_html=True)
 
-
-choice = st.sidebar.radio(
-    "Choose a dataset",   
-    ('Default', 'User-defined '),
-    index = 0
-    
-)
 
 st.write(f"## You Have Selected <font color='Aquamarine'>{choice}</font> Dataset", unsafe_allow_html=True)
 
