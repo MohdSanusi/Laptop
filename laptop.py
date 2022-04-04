@@ -33,6 +33,11 @@ data = pd.read_table('Laptop.csv', index_col = False,  sep = ',', skipinitialspa
 data = data.dropna()
 data = data.drop(['Series','Unnamed: 0','Model','Processor'], axis = 1)
 
+X=[]
+y=[]
+X_names = []
+X1 = []
+
 labelencoder1 = LabelEncoder()
 #labelencoder2 = LabelEncoder()
 #labelencoder3 = LabelEncoder()
