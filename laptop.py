@@ -18,7 +18,7 @@ from sklearn.metrics import classification_report
 
 
 
-st.title('Machine Learning - CLASSIFICATION')
+st.title('Machine Learning - LAPTOP PRICE PREDICTION')
 
 st.sidebar.write("""
 This is a web app demo using python libraries such as Streamlit, Sklearn etc
@@ -26,7 +26,7 @@ This is a web app demo using python libraries such as Streamlit, Sklearn etc
 
 st.sidebar.write ("For more info, please contact:")
 
-st.sidebar.write("<a href='https://www.linkedin.com/in/yong-poh-yu/'>Dr. Yong Poh Yu </a>", unsafe_allow_html=True)
+st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9bb8b7195/'>Mohd Sanusi </a>", unsafe_allow_html=True)
 
 
 choice = st.sidebar.radio(
