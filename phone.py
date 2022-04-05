@@ -10,7 +10,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.ensemble import RandomForestClassifier
+#from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
 
 st.title('Machine Learning - SMARTPHONE PRICE CLASSIFICATION')
@@ -28,7 +28,7 @@ st.sidebar.write("href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9bb8
 
 data = pd.read_table('phone.csv', index_col = False,  sep = ',', skipinitialspace = True)
 data = data.dropna()
-data = data.drop(['Series','Unnamed: 0','Model'], axis = 1)
+
 
 X = data.drop('price_range', axis = 1)
 y = data['price_range']
