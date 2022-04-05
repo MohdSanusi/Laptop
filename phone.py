@@ -50,8 +50,31 @@ D3 = st.slider('n_cores', 1, 8,value=1)
 D4 = st.slider('ram', 400, 6000,value=1000)
 D5 = st.slider('int_memory', 4, 128,value=8)
 
-st.write(ypred)
+#st.write(ypred)
 
+st.write("## 3: Classification Report")
+
+if len(X)!=0 and len(y)!=0: 
+
+
+  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_data_ratio, random_state=random_state)
+
+  scaler = StandardScaler()
+  X_train_scaled = scaler.fit_transform(X_train)
+  X_test_scaled = scaler.transform(X_test)    
+
+  clf.fit(X_train_scaled, y_train)
+  y_pred = clf.predict(X_test_scaled)
+
+
+  st.write('Classifier:',classifier_name)
+  st.write('Classification report:')
+  report = classification_report(y_test, y_pred,output_dict=True)
+  df = pd.DataFrame(report).transpose()
+  st.write(df)
+
+else: 
+   st.write("<font color='Aquamarine'>Note: No classification report generated.</font>", unsafe_allow_html=True)
 hide_streamlit_style = """
             <style>
             #MainMenu {visibility: hidden;}
