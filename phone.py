@@ -29,14 +29,17 @@ st.sidebar.write("href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9bb8
 data = pd.read_table('phone.csv', index_col = False,  sep = ',', skipinitialspace = True)
 data = data.dropna()
 
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 
 X = data.drop('price_range', axis = 1)
 y = data['price_range']
 Xtrain, Xtest, ytrain, ytest = train_test_split(X, y)
 
 knn = KNeighborsClassifier(n_neighbors=3)
-knn.fit_transform(Xtrain, ytrain)
+knn.fit(Xtrain, ytrain)
 ypred = knn.predict(Xtest)
+
 #RandomForest = RandomForestClassifier()
 #RandomForest.fit(Xtrain, ytrain)
 #ypred = RandomForest.predict(Xtest)
