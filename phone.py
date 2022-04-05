@@ -54,14 +54,14 @@ ram = st.slider('ram', 400, 6000,value=1000)
 storage = st.slider('int_memory', 4, 128,value=8)
 
 prediction = classifier.predict([[battery, clkspd, core, ram, storage]])
-  if prediction == 0:
-    st.write('This is a Low-Range Phone')
-  elif prediction == 1:
-    st.write('This is a Mid-Range Phone')
-  elif prediction == 2:
-      st.write('This is a High-End Phone')
-  else:
-    st.write('This is a Flagship Phone')
+if prediction == 0:
+  st.write('This is a Low-Range Phone')
+elif prediction == 1:
+  st.write('This is a Mid-Range Phone')
+elif prediction == 2:
+  st.write('This is a High-End Phone')
+else:
+  st.write('This is a Flagship Phone')
 
 hide_streamlit_style = """
             <style>
