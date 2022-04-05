@@ -67,15 +67,18 @@ three_g = st.slider('three_g', 0, 1,value=1)
 touch_screen = st.slider('touch_screen', 0, 1,value=1)
 wifi = st.slider('wifi', 0, 1,value=1)
 
-prediction = classifier.predict([[battery_power, blue, clock_speed, dual_sim, fc, four_g, int_memory, m_dep, mobile_wt, n_cores, pc, px_height, px_width, ram, sc_h, sc_w, talk_time, three_g, touch_screen, wifi]])
-if prediction == 0:
-  st.write('This is a Low-Range Phone')
-elif prediction == 1:
-  st.write('This is a Mid-Range Phone')
-elif prediction == 2:
-  st.write('This is a High-End Phone')
-else:
-  st.write('This is a Flagship Phone')
+submit = st.button('Predict')
+
+if submit:
+  prediction = classifier.predict([[battery_power, blue, clock_speed, dual_sim, fc, four_g, int_memory, m_dep, mobile_wt, n_cores, pc, px_height, px_width, ram, sc_h, sc_w, talk_time, three_g, touch_screen, wifi]])
+  if prediction == 0:
+    st.write('This is a Low-Range Phone')
+  elif prediction == 1:
+    st.write('This is a Mid-Range Phone')
+  elif prediction == 2:
+    st.write('This is a High-End Phone')
+  else:
+    st.write('This is a Flagship Phone')
 
 hide_streamlit_style = """
             <style>
