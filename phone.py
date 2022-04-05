@@ -73,13 +73,13 @@ st.sidebar.write('Prediction:')
 #if submit:
 prediction = classifier.predict([[battery_power, blue, clock_speed, dual_sim, fc, four_g, int_memory, m_dep, mobile_wt, n_cores, pc, px_height, px_width, ram, sc_h, sc_w, talk_time, three_g, touch_screen, wifi]])
 if prediction == 0:
-  st.sidebar.write(f"## <font color='Aquamarine'>This is a Low-Range Phone</font>")
+  st.sidebar.write(f"## <font color='Aquamarine'>This is a Low-Range Phone</font>", unsafe_allow_html=True)
 elif prediction == 1:
-  st.sidebar.write(f"## <font color='Aquamarine'>This is a Mid-Range Phone</font>")
+  st.sidebar.write(f"## <font color='Aquamarine'>This is a Mid-Range Phone</font>", unsafe_allow_html=True)
 elif prediction == 2:
-  st.sidebar.write(f"## <font color='Aquamarine'>This is a High-End Phone</font>")
+  st.sidebar.write(f"## <font color='Aquamarine'>This is a High-End Phone</font>", unsafe_allow_html=True)
 else:
-  st.sidebar.write(f"## <font color='Aquamarine'>This is a Flagship Phone</font>")
+  st.sidebar.write(f"## <font color='Aquamarine'>This is a Flagship Phone</font>", unsafe_allow_html=True)
 
 hide_streamlit_style = """
             <style>
