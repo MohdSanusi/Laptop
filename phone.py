@@ -21,7 +21,7 @@ This is a web app demo using python libraries such as Streamlit, Sklearn etc
 """)
 
 st.sidebar.write ("For more info, please contact:")
-st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor-9bb8b7195/'>Mohd Sanusi </a>", unsafe_allow_html=True)
+st.sidebar.write("<a href='https://www.linkedin.com/in/mohd-sanusi-amat-sernor/'>Mohd Sanusi </a>", unsafe_allow_html=True)
 st.sidebar.write ("Source Code:")
 st.sidebar.write("<a href='https://github.com/MohdSanusi/Laptop/'>Phone Classification </a>", unsafe_allow_html=True)
 
